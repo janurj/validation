@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Registration Form</title>
+  <link href="C:\Users\janur\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\css\bootstrap.min.css" rel="stylesheet">
+  <style>
+    .error {
+      color: red;
+    }
+    body{
+      background-image: url(images.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-center">NPTEL</h1>
+  <h3 class="text-center">NPTEL exams welcomes you</h3>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center">Exam Registration Form</h3>
+          </div>
+          <div class="card-body">
+            <form id="examRegistrationForm" onsubmit="return validateForm()">
+              <div class="form-group row">
+                <label for="fullName" class="col-sm-3 col-form-label">Full Name:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="fullName" required>
+                  <div id="fullNameError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="regno" class="col-sm-3 col-form-label">Register No:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="regno" required>
+                  <div id="regnoError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label">Email:</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="email" required>
+                  <div id="emailError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="address" class="col-sm-3 col-form-label">Address:</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="address" rows="3" required></textarea>
+                  <div id="addressError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="course" class="col-sm-3 col-form-label">Course:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" id="course" required>
+                    <option value="">Choose Course</option>
+                    <option value="Math">Math</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <!-- Add more NPTEL courses here -->
+                  </select>
+                  <div id="courseError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="gender" class="col-sm-3 col-form-label">Gender:</label>
+                <div class="col-sm-9">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+                  <div id="genderError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="examDate" class="col-sm-3 col-form-label"> Date of Birth:</label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" id="examDate" required>
+                  <div id="examDateError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="center" class="col-sm-3 col-form-label">Center:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" id="center" required>
+                    <option value="">Choose Center</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    <!-- Add more cities as needed -->
+                  </select>
+                  <div id="centerError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="country" class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="country" value="India" readonly>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="state" class="col-sm-3 col-form-label">State:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="state" value="Tamil Nadu" readonly>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="password" class="col-sm-3 col-form-label">Password:</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="password" required>
+                  <div id="passwordError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="confirmPassword" class="col-sm-3 col-form-label">Confirm Password:</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="confirmPassword" required>
+                  <div id="confirmPasswordError" class="error"></div>
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label for="subjects" class="col-sm-3 col-form-label">Amount paid or not:</label>
+                <div class="col-sm-9">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="math" value="Yes">
+                    <label class="form-check-label" for="math">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="science" value="No">
+                    <label class="form-check-label" for="science">
+                      No
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="english" value="Transaction Error">
+                    <label class="form-check-label" for="english">
+                      Transaction error
+                    </label>
+                  </div>
+                </div>
+              </div><br>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            <!-- Display examiner details -->
+            <div id="examinerDetails" class="mt-4" style="display: none;">
+              <h4 class="text-center">Examiner Details</h4>
+              <h3 style="color:red">Welcome to NPTEL exams. Here, is your details.</h3>
+              <p><strong>Full Name:</strong> <span id="examinerFullName"></span></p>
+              <p><strong>Register No:</strong> <span id="examinerRegNo"></span></p>
+              <p><strong>Email:</strong> <span id="examinerEmail"></span></p>
+              <p><strong>Course:</strong> <span id="examinerCourse"></span></p>
+              <p><strong>Gender:</strong> <span id="examinerGender"></span></p>
+              <p><strong>Date of Birth:</strong> <span id="examinerExamDate"></span></p>
+              <p><strong>Center:</strong> <span id="examinerCenter"></span></p>
+              <p><strong>Country:</strong> <span id="examinerCountry"></span></p>
+              <p><strong>State:</strong> <span id="examinerState"></span></p>
+              <p><strong>Amount paid or not:</strong> <span id="examinerSubjects"></span></p>
+              <h2 style="color:brown"><center>All the best!</center></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="C:\Users\janur\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="C:\Users\janur\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\js\jquery-3.7.1.min.js"></script>
+  <script>
+    function validateForm() {
+      var fullName = document.getElementById('fullName').value.trim();
+      var regno = document.getElementById('regno').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var address=document.getElementById('address').value.trim();
+      var course = document.getElementById('course').value.trim();
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var examDate = document.getElementById('examDate').value.trim();
+      var center = document.getElementById('center').value.trim();
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      var subjects = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      var isValid = true;
+
+      // Full Name validation
+      if (!fullName) {
+        document.getElementById('fullNameError').innerHTML = 'Full Name is required';
+        isValid = false;
+      } else {
+        document.getElementById('fullNameError').innerHTML = '';
+      }
+
+      // Register No validation
+      if (!regno) {
+        document.getElementById('regnoError').innerHTML = 'Register No is required';
+        isValid = false;
+      } else {
+        document.getElementById('regnoError').innerHTML = '';
+      }
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email) {
+        document.getElementById('emailError').innerHTML = 'Email is required';
+        isValid = false;
+      } else if (!emailRegex.test(email)) {
+        document.getElementById('emailError').innerHTML = 'Invalid email format';
+        isValid = false;
+      } else {
+        document.getElementById('emailError').innerHTML = '';
+      }
+      if(!address){
+        document.getElementById('addressError').innerHTML='Address is required';
+        isValid=false;
+      }else{
+        document.getElementById('addressError').innerHTML='';
+      }
+
+      // Course validation
+      if (!course) {
+        document.getElementById('courseError').innerHTML = 'Please choose a course';
+        isValid = false;
+      } else {
+        document.getElementById('courseError').innerHTML = '';
+      }
+
+      // Gender validation
+      if (!gender) {
+        document.getElementById('genderError').innerHTML = 'Please select a gender';
+        isValid = false;
+      } else {
+        document.getElementById('genderError').innerHTML = '';
+      }
+
+      // Exam Date validation
+      if (!examDate) {
+        document.getElementById('examDateError').innerHTML = 'Exam Date is required';
+        isValid = false;
+      } else {
+        document.getElementById('examDateError').innerHTML = '';
+      }
+
+      // Center validation
+      if (!center) {
+        document.getElementById('centerError').innerHTML = 'Please choose a center';
+        isValid = false;
+      } else {
+        document.getElementById('centerError').innerHTML = '';
+      }
+
+      // Password validation
+      if (!password) {
+        document.getElementById('passwordError').innerHTML = 'Password is required';
+        isValid = false;
+      } else if (password.length < 6) {
+        document.getElementById('passwordError').innerHTML = 'Password must be at least 6 characters';
+        isValid = false;
+      } else {
+        document.getElementById('passwordError').innerHTML = '';
+      }
+
+      // Confirm Password validation
+      if (!confirmPassword) {
+        document.getElementById('confirmPasswordError').innerHTML = 'Please confirm your password';
+        isValid = false;
+      } else if (confirmPassword !== password) {
+        document.getElementById('confirmPasswordError').innerHTML = 'Passwords do not match';
+        isValid = false;
+      } else {
+        document.getElementById('confirmPasswordError').innerHTML = '';
+      }
+
+      // Subjects validation
+      if (subjects.length === 0) {
+        document.getElementById('examinerSubjects').innerHTML = 'Please select at least one subject';
+        isValid = false;
+      } else {
+        document.getElementById('examinerSubjects').innerHTML = Array.from(subjects).map(subject => subject.value).join(', ');
+      }
+
+      // If form is valid, display examiner details
+      if (isValid) {
+        document.getElementById('examinerFullName').innerHTML = fullName;
+        document.getElementById('examinerRegNo').innerHTML = regno;
+        document.getElementById('examinerEmail').innerHTML = email;
+        document.getElementById('examinerCourse').innerHTML = course;
+        document.getElementById('examinerGender').innerHTML = gender.value;
+        document.getElementById('examinerSubjects').innerHTML = Array.from(subjects).map(subject => subject.value).join(', ');
+        document.getElementById('examinerExamDate').innerHTML = examDate;
+        document.getElementById('examinerCenter').innerHTML= center;
+        document.getElementById('examinerCountry').innerHTML = 'India';
+        document.getElementById('examinerState').innerHTML = 'Tamil Nadu';
+
+        // Show the examiner details section
+        document.getElementById('examinerDetails').style.display = 'block';
+      }
+
+      // Return false to prevent form submission if any validation fails
+      return false;
+    }
+  </script>
+</body>
+</html>
